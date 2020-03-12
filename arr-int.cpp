@@ -10,12 +10,12 @@ public:
   DynamicArray();
   ~DynamicArray();
   void addEntry(T newEntry);
-  T getEntry(T index);
-  T getSize();
+  T getEntry(int index);
+  int getSize();
 
 private:
   T *dynamicArray;
-  T size;
+  int size;
 };
 
 template<class T>
@@ -33,7 +33,7 @@ DynamicArray<T>::~DynamicArray()
 }
 
 template<class T>
-T DynamicArray<T>::getSize()
+int DynamicArray<T>::getSize()
 {
   return size;
 }
@@ -44,7 +44,7 @@ void DynamicArray<T>::addEntry(T newEntry)
 {
     // Create a new array, copy the contents of the old array, then delete it
     T *newArray = new T[size + 1];
-    for (T i = 0; i < size; i++)
+    for (int i = 0; i < size; i++)
     {
     newArray[i] = dynamicArray[i];
     }
@@ -61,7 +61,7 @@ void DynamicArray<T>::addEntry(T newEntry)
 
 // Retrieve the element at a given index
 template<class T>
-T DynamicArray<T>::getEntry(T index)
+T DynamicArray<T>::getEntry(int index)
 {
   if ((index < 0) || (index >= size)){
     cout << "Out of the index !" << endl;
@@ -74,14 +74,14 @@ T DynamicArray<T>::getEntry(T index)
 
 int main()
 {
-  DynamicArray<int> x;
+  DynamicArray<double> x;
 
   // Adding entries
-  x.addEntry(7);
-  x.addEntry(5);
-  x.addEntry(4);
-  x.addEntry(2);
-  x.addEntry(8);
+  x.addEntry(7.0);
+  x.addEntry(5.0);
+  x.addEntry(4.0);
+  x.addEntry(2.0);
+  x.addEntry(8.0);
 
   // Output entries
   cout << "List:" << endl;
